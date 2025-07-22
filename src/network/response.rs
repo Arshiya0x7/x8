@@ -266,10 +266,12 @@ impl<'a> Response<'a> {
                 diff.unwrap()
             ),
             ReasonKind::Reflected => format!(
-                "{}{}: {}",
+                "{}{}: {} code {} -> {}",
                 &id_if_important,
                 "reflects".bright_blue(),
-                parameter
+                &parameter,
+                initial_response.code(),
+                self.code(),
             ),
             ReasonKind::NotReflected => format!(
                 "{}{}: {}",
