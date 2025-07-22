@@ -274,10 +274,12 @@ impl<'a> Response<'a> {
                 self.code(),
             ),
             ReasonKind::NotReflected => format!(
-                "{}{}: {}",
+                "{}{}: {} code {} -> {}",
                 &id_if_important,
                 "changes reflections".bright_cyan(),
-                parameter
+                &parameter,
+                initial_response.code(),
+                self.code(),
             ),
         };
 
